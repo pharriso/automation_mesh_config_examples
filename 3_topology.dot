@@ -1,0 +1,25 @@
+strict digraph "" {
+    rankdir = TB
+    node [shape=box];
+    subgraph cluster_0 {
+        graph [label="Control Nodes", type=solid];
+        {
+            rank = same;
+            "controller-1.example.com";
+            "controller-2.example.com";
+            "controller-3.example.com";
+            "controller-1.example.com" -> "controller-3.example.com";
+            "controller-1.example.com" -> "controller-2.example.com";
+            "controller-2.example.com" -> "controller-3.example.com";
+        }
+    }
+
+    "execution-2.example.com";
+    "execution-1.example.com";
+    "controller-1.example.com" -> "execution-1.example.com";
+    "controller-2.example.com" -> "execution-1.example.com";
+    "controller-3.example.com" -> "execution-1.example.com";
+    "execution-2.example.com" -> "controller-1.example.com";
+    "execution-2.example.com" -> "controller-3.example.com";
+    "execution-2.example.com" -> "controller-2.example.com";
+}
